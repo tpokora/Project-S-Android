@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Project-S-Android</string>
+
+    <!-- LOGIN SCREEN -->
+    <string name="login_text_field">Login</string>
+    <string name="login_button">Sign in</string>
 </resources>
