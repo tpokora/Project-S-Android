@@ -3,5 +3,6 @@
 
     <!-- LOGIN SCREEN -->
     <string name="login_text_field">Login</string>
+    <string name="password_text_field">Password</string>
     <string name="login_button">Sign in</string>
 </resources>

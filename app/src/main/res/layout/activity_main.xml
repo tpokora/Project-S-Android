@@ -11,15 +11,25 @@
     tools:context="projects.tpokora.com.project_s_android.MainActivity">
 
     <EditText
-        android:id="@+id/LoginEditText"
+        android:id="@+id/login_editText"
         android:hint="@string/login_text_field"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/LoginButton"
+    <EditText
+        android:id="@+id/password_editText"
+        android:hint="@string/password_text_field"
+        android:inputType="textPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/login_button"/>
+        android:visibility="invisible"
+        />
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/login_button"
+        android:onClick="checkLogin"/>
 
 </LinearLayout>
