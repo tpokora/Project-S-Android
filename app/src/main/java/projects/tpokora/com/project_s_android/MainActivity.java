@@ -7,7 +7,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
+
 public class MainActivity extends AppCompatActivity {
+
+    private static HashMap users = new HashMap<String, String>();
 
     public static boolean loginChecked = false;
 
@@ -19,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Get users
+        users = readUsersFromProperties();
 
         // Initiate components
         loginEditText = (EditText) findViewById(R.id.login_editText);
@@ -54,5 +63,21 @@ public class MainActivity extends AppCompatActivity {
         } else {
             passwordEditText.setVisibility(View.INVISIBLE);
         }
+    }
+
+    private HashMap<String, String> readUsersFromProperties() {
+        Properties properties = new Properties();
+
+        try {
+            properties.load(MainActivity.class.getResourceAsStream("users.properties"));
+            for (final Map.Entry<Object, Object> entry : properties.entrySet()) {
+                users.put((String) entry.getKey(), (String) entry.getValue());
+                Log.d("USER", (String) entry.getKey());
+            }
+        } catch (Exception e) {
+
+        }
+
+        return users;
     }
 }
