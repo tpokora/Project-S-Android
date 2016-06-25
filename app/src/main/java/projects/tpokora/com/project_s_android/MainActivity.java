@@ -1,5 +1,6 @@
 package projects.tpokora.com.project_s_android;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +14,7 @@ import java.util.Properties;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Context context;
     private static HashMap users = new HashMap<String, String>();
 
     public static boolean loginChecked = false;
@@ -27,7 +29,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Get users
-        users = readUsersFromProperties();
+        context = this;
+        users = readUsersFromProperties(context);
 
         // Initiate components
         loginEditText = (EditText) findViewById(R.id.login_editText);
@@ -65,17 +68,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private HashMap<String, String> readUsersFromProperties() {
-        Properties properties = new Properties();
-
-        try {
-            properties.load(MainActivity.class.getResourceAsStream("users.properties"));
-            for (final Map.Entry<Object, Object> entry : properties.entrySet()) {
-                users.put((String) entry.getKey(), (String) entry.getValue());
-                Log.d("USER", (String) entry.getKey());
-            }
-        } catch (Exception e) {
-
+    private HashMap<String, String> readUsersFromProperties(Context context) {
+        AssetsPropertyReader assetsPropertyReader = new AssetsPropertyReader(context);
+        Properties properties = assetsPropertyReader.getProperties("users.properties");
+        for (final Map.Entry<Object, Object> entry : properties.entrySet()) {
+            users.put((String) entry.getKey(), (String) entry.getValue());
+            Log.d("USER", (String) entry.getKey());
         }
 
         return users;
