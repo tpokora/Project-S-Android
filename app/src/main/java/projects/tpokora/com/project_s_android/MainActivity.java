@@ -2,7 +2,6 @@ package projects.tpokora.com.project_s_android;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,11 +13,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AbstractActivity {
 
     private static final String USERS_PROPERTIES_FILE = "users.properties";
 
-    private Context context;
     private static HashMap users = new HashMap<String, String>();
 
     public static boolean loginChecked = false;
@@ -31,9 +29,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setupActivity();
 
         // Get users
-        context = this;
         users = readUsersFromProperties(context);
 
         // Initiate components

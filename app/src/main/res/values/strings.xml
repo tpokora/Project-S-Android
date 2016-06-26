@@ -8,4 +8,10 @@
 
     <!-- ARTICLES SCREEN -->
     <string name="articles_new_article">New article</string>
+
+    <!-- NEW ARTICLES SCREEN -->
+    <string name="new_article_title">Title</string>
+    <string name="new_article_content">Content...</string>
+    <string name="new_article_save">Save</string>
+    <string name="new_article_back">Back</string>
 </resources>
