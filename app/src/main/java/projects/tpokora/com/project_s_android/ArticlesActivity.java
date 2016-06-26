@@ -1,6 +1,7 @@
 package projects.tpokora.com.project_s_android;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -11,7 +12,7 @@ import android.widget.Toast;
 /**
  * Created by pokor on 20.06.2016.
  */
-public class ArticleActivity extends AppCompatActivity {
+public class ArticlesActivity extends AppCompatActivity {
 
     private Bundle bundle;
 
@@ -26,7 +27,7 @@ public class ArticleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article);
-        getBundle();
+        bundle = getIntent().getExtras();
 
         // Get user
         context = this;
@@ -40,12 +41,10 @@ public class ArticleActivity extends AppCompatActivity {
         newArticleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "This will open new article menu", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(context, NewArticleActivity.class);
+                intent.putExtra("login", loggedUser);
+                startActivity(intent);
             }
         });
-    }
-
-    private void getBundle() {
-        bundle = getIntent().getExtras();
     }
 }

@@ -15,9 +15,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ArticleActivity">
+        <activity android:name=".ArticlesActivity">
 
         </activity>
+        <activity android:name=".NewArticleActivity"></activity>
     </application>
 
 </manifest>

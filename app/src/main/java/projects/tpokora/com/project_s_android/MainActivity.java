@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                         if (checkUserPassword(login, passwordEditText.getText().toString())) {
                             Log.d("LOGIN", "User: " + login + " password is correct");
                             loginChecked = true;
-                            Intent intent = new Intent(context, ArticleActivity.class);
+                            Intent intent = new Intent(context, ArticlesActivity.class);
                             intent.putExtra("login", login);
                             startActivity(intent);
                         } else {
