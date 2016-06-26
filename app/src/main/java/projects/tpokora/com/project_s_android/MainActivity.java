@@ -55,11 +55,11 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(intent);
                         } else {
                             Log.e("LOGIN", "Password incorrect!");
-                            Toast.makeText(context, "Password incorrect!", Toast.LENGTH_SHORT);
+                            Toast.makeText(context, "Password incorrect!", Toast.LENGTH_SHORT).show();
                         }
                     } else {
                         Log.e("LOGIN", "User not exists");
-                        Toast.makeText(context, "User not exists!", Toast.LENGTH_SHORT);
+                        Toast.makeText(context, "User not exists!", Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     Log.d("TRUE", "TRUE");
@@ -107,11 +107,7 @@ public class MainActivity extends AppCompatActivity {
      * @return
      */
     private boolean checkUserPassword(String login, String password) {
-        if (users.get(login).equals(password)) {
-            return true;
-        } else {
-            return false;
-        }
+        return users.get(login).equals(password);
     }
 
     /**
@@ -123,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
         AssetsPropertyReader assetsPropertyReader = new AssetsPropertyReader(context);
         Properties properties = assetsPropertyReader.getProperties(USERS_PROPERTIES_FILE);
         for (final Map.Entry<Object, Object> entry : properties.entrySet()) {
-            users.put((String) entry.getKey(), (String) entry.getValue());
+            users.put(entry.getKey(), entry.getValue());
         }
 
         return users;
