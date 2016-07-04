@@ -11,6 +11,11 @@
         android:gravity="center"
         android:textSize="40px"/>
 
+    <ListView
+        android:id="@+id/article_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></ListView>
+
     <Button
         android:id="@+id/new_article_button"
         android:layout_width="match_parent"

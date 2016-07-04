@@ -1,4 +1,4 @@
-package projects.tpokora.com.project_s_android;
+package projects.tpokora.com.project_s_android.utils;
 
 import android.content.Context;
 import android.content.res.AssetManager;
