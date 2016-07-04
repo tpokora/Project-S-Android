@@ -111,7 +111,7 @@ public class ArticleDBAdapter {
         newArticleValues.put(KEY_CONTENT, newArticle.getContent());
         newArticleValues.put(KEY_CREATE_TIME, newArticle.getCreateTime().toString());
         newArticleValues.put(KEY_AUTHOR, newArticle.getAuthor());
-        return sqldb.insert(DB_ARTICLE_TABLE, null, newArticleValues);
+        return sqldb.insertOrThrow(DB_ARTICLE_TABLE, null, newArticleValues);
     }
 
     public boolean deleteArticle(long id){

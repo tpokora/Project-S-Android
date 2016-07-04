@@ -1,4 +1,4 @@
-package projects.tpokora.com.project_s_android;
+package projects.tpokora.com.project_s_android.activities;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -11,6 +11,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import projects.tpokora.com.project_s_android.R;
 import projects.tpokora.com.project_s_android.rest.model.Article;
 import projects.tpokora.com.project_s_android.storage.ArticleDBAdapter;
 import projects.tpokora.com.project_s_android.storage.ArticlesAdapter;
@@ -26,7 +27,6 @@ public class ArticlesActivity extends AbstractActivity {
     private TextView loggedUserBar;
 
     private ListView articleList;
-    private ArticleDBAdapter articleDBAdapter;
     private Cursor articleCursor;
     private List<Article> articles;
     private ArticlesAdapter listAdapter;
@@ -51,7 +51,6 @@ public class ArticlesActivity extends AbstractActivity {
     }
 
     private void fillListViewData() {
-        articleDBAdapter = new ArticleDBAdapter(this.context);
         articleDBAdapter.open();
         getAllArticles();
         listAdapter = new ArticlesAdapter(this, articles);

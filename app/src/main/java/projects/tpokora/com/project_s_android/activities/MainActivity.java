@@ -1,4 +1,4 @@
-package projects.tpokora.com.project_s_android;
+package projects.tpokora.com.project_s_android.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+import projects.tpokora.com.project_s_android.R;
 import projects.tpokora.com.project_s_android.utils.AssetsPropertyReader;
 
 public class MainActivity extends AbstractActivity {

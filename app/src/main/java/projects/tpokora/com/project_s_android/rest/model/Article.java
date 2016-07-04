@@ -16,6 +16,13 @@ public class Article extends AbstractEntity {
 
     }
 
+    public Article(String title, String content, Date createTime, String author) {
+        this.title = title;
+        this.content = content;
+        this.createTime = createTime;
+        this.author = author;
+    }
+
     public Article(Integer id, String title, String content, Date createTime) {
         super(id);
         this.title = title;
