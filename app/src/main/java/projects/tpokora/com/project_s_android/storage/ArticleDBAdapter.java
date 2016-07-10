@@ -8,9 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import projects.tpokora.com.project_s_android.rest.model.Article;
 import projects.tpokora.com.project_s_android.utils.DateUtils;
@@ -106,11 +104,13 @@ public class ArticleDBAdapter {
     }
 
     public long insertArticle(Article newArticle) {
+        this.open();
         ContentValues newArticleValues = new ContentValues();
         newArticleValues.put(KEY_TITLE, newArticle.getTitle());
         newArticleValues.put(KEY_CONTENT, newArticle.getContent());
         newArticleValues.put(KEY_CREATE_TIME, newArticle.getCreateTime().toString());
         newArticleValues.put(KEY_AUTHOR, newArticle.getAuthor());
+        Log.d(DEBUG_TAG, "Inserting new article to database...");
         return sqldb.insertOrThrow(DB_ARTICLE_TABLE, null, newArticleValues);
     }
 

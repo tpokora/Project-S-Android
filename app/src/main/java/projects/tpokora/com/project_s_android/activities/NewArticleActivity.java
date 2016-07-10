@@ -1,6 +1,8 @@
 package projects.tpokora.com.project_s_android.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -54,7 +56,14 @@ public class NewArticleActivity extends AbstractActivity {
 
                     Article newArticle = new Article(title, content, new Date(), login);
 
-                    articleDBAdapter.insertArticle(newArticle);
+                    long inserted = articleDBAdapter.insertArticle(newArticle);
+
+                    if (inserted > 0) {
+                        Log.d(DEBUG_TAG, "Articles inserting results: " + inserted);
+                        finish();
+                    } else {
+                        Log.e(DEBUG_TAG, "Error while inserting row to database");
+                    }
 
                 } else {
                     Toast.makeText(context, "Please fill all fields", Toast.LENGTH_LONG).show();

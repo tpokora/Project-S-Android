@@ -75,7 +75,7 @@ public class ArticlesActivity extends AbstractActivity {
                 String content = articleCursor.getString(ArticleDBAdapter.CONTENT_COLUMN);
                 String createTime = articleCursor.getString(ArticleDBAdapter.CREATE_TIME_COLUMN);
                 String author = articleCursor.getString(ArticleDBAdapter.AUTHOR_COLUMN);
-                Article article = new Article((int) id, title, content, DateUtils.stringToDate("YYYY-MM-DD HH:MM:SS.SSS", createTime), author);
+                Article article = new Article((int) id, title, content, DateUtils.stringToDate("yyyy-MM-DD HH:MM:SS.SSS", createTime), author);
                 articles.add(article);
             } while (articleCursor.moveToNext());
         }
