@@ -36,12 +36,14 @@ public class ArticleDBAdapter {
     public static final int CONTENT_COLUMN = 2;
 
     public static final String KEY_CREATE_TIME = "createTime";
-    public static final String CREATE_TIME_OPTIONS = "TEXT NOT NULL";
+    public static final String CREATE_TIME_OPTIONS = "DATETIME NOT NULL";
     public static final int CREATE_TIME_COLUMN = 3;
 
     public static final String KEY_AUTHOR = "author";
     public static final String AUTHOR_OPTIONS = "TEXT NOT NULL";
     public static final int AUTHOR_COLUMN = 4;
+
+    public static final String ARTICLE_DB_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss Z";
 
     // SQL QUERY
     private static final String DB_CREATE_ARTICLE_TABLE =
@@ -108,7 +110,7 @@ public class ArticleDBAdapter {
         ContentValues newArticleValues = new ContentValues();
         newArticleValues.put(KEY_TITLE, newArticle.getTitle());
         newArticleValues.put(KEY_CONTENT, newArticle.getContent());
-        newArticleValues.put(KEY_CREATE_TIME, newArticle.getCreateTime().toString());
+        newArticleValues.put(KEY_CREATE_TIME, DateUtils.dateToString(ARTICLE_DB_DATE_FORMAT, newArticle.getCreateTime()));
         newArticleValues.put(KEY_AUTHOR, newArticle.getAuthor());
         Log.d(DEBUG_TAG, "Inserting new article to database...");
         return sqldb.insertOrThrow(DB_ARTICLE_TABLE, null, newArticleValues);
@@ -119,12 +121,16 @@ public class ArticleDBAdapter {
         return sqldb.delete(DB_ARTICLE_TABLE, where, null) > 0;
     }
 
+    public boolean deleteAllArticles() {
+        return sqldb.delete(DB_ARTICLE_TABLE, null, null) > 0;
+    }
+
     public Cursor getAllArticles() {
         String[] columns = {KEY_ID, KEY_TITLE, KEY_CONTENT, KEY_CREATE_TIME, KEY_AUTHOR};
         return sqldb.query(DB_ARTICLE_TABLE, columns, null, null, null, null, null);
     }
 
-    public Article getTodo(long id) {
+    public Article getArticle(long id) {
         String[] columns = {KEY_ID, KEY_TITLE, KEY_CONTENT, KEY_CREATE_TIME, KEY_AUTHOR};
         String where = KEY_ID + "=" + id;
         Cursor cursor = sqldb.query(DB_ARTICLE_TABLE, columns, where, null, null, null, null);
@@ -134,8 +140,6 @@ public class ArticleDBAdapter {
             String dateString = cursor.getString(CREATE_TIME_COLUMN);
             SimpleDateFormat formater = new SimpleDateFormat(format);
             article = new Article((int) id, cursor.getString(TITLE_COLUMN), cursor.getString(CONTENT_COLUMN), DateUtils.stringToDate(format, dateString), cursor.getString(AUTHOR_COLUMN));
-
-
         }
 
         return article;

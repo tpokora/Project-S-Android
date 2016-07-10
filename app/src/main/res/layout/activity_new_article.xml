@@ -7,7 +7,7 @@
         android:id="@+id/new_article_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/new_article_title" />
+        android:hint="@string/new_article_title" />
 
     <EditText
         android:id="@+id/new_article_content"

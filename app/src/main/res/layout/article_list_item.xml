@@ -7,7 +7,16 @@
         android:id="@+id/article_list_item_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="title"
+        android:hint="@string/new_article_title"
         android:padding="20px"/>
+
+    <TextView
+        android:id="@+id/article_item_content"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:hint="@string/new_article_content"
+        android:padding="20px"
+
+        />
 
 </LinearLayout>

@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +34,7 @@ public class ArticlesActivity extends AbstractActivity {
     private ArticlesAdapter listAdapter;
 
     private Button newArticleButton;
+    private Button dropDBButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +58,14 @@ public class ArticlesActivity extends AbstractActivity {
         getAllArticles();
         listAdapter = new ArticlesAdapter(this, articles);
         articleList.setAdapter(listAdapter);
+
+        articleList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Article selectedArticle = (Article) adapterView.getItemAtPosition(i);
+                Toast.makeText(context, selectedArticle.getTitle(), Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     private void getAllArticles() {
@@ -75,7 +86,7 @@ public class ArticlesActivity extends AbstractActivity {
                 String content = articleCursor.getString(ArticleDBAdapter.CONTENT_COLUMN);
                 String createTime = articleCursor.getString(ArticleDBAdapter.CREATE_TIME_COLUMN);
                 String author = articleCursor.getString(ArticleDBAdapter.AUTHOR_COLUMN);
-                Article article = new Article((int) id, title, content, DateUtils.stringToDate("yyyy-MM-DD HH:MM:SS.SSS", createTime), author);
+                Article article = new Article((int) id, title, content, DateUtils.stringToDate(ArticleDBAdapter.ARTICLE_DB_DATE_FORMAT, createTime), author);
                 articles.add(article);
             } while (articleCursor.moveToNext());
         }
@@ -95,6 +106,15 @@ public class ArticlesActivity extends AbstractActivity {
                 Intent intent = new Intent(context, NewArticleActivity.class);
                 intent.putExtra("login", loggedUser);
                 startActivity(intent);
+            }
+        });
+
+        dropDBButton = (Button) findViewById(R.id.drop_db_button);
+        dropDBButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                articleDBAdapter.deleteAllArticles();
+                initListView();
             }
         });
     }

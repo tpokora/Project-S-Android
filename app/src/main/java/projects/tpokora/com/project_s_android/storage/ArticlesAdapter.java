@@ -11,6 +11,7 @@ import java.util.List;
 
 import projects.tpokora.com.project_s_android.R;
 import projects.tpokora.com.project_s_android.rest.model.Article;
+import projects.tpokora.com.project_s_android.utils.DateUtils;
 
 /**
  * Created by pokor on 26.06.2016.
@@ -45,7 +46,7 @@ public class ArticlesAdapter extends ArrayAdapter<Article> {
         }
 
         Article article = articles.get(position);
-        viewHolder.article_list_item_title.setText(article.getTitle());
+        viewHolder.article_list_item_title.setText(article.getTitle() + " | " + DateUtils.dateToString("HH:mm yyyy-MM-dd", article.getCreateTime()));
 
         return rowView;
     }
