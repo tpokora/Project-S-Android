@@ -3,14 +3,15 @@ package projects.tpokora.com.project_s_android.activities;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.ListView;
+import android.widget.ExpandableListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import projects.tpokora.com.project_s_android.R;
@@ -24,13 +25,17 @@ import projects.tpokora.com.project_s_android.utils.DateUtils;
  */
 public class ArticlesActivity extends AbstractActivity {
 
+    private static final String DEBUG_TAG = "ArticlesActivity";
+
     private String loggedUser;
 
     private TextView loggedUserBar;
 
-    private ListView articleList;
+    private ExpandableListView articleList;
     private Cursor articleCursor;
     private List<Article> articles;
+    private List<String> articlesTitles;
+    private HashMap<String, List<String>> articlesContent;
     private ArticlesAdapter listAdapter;
 
     private Button newArticleButton;
@@ -47,6 +52,7 @@ public class ArticlesActivity extends AbstractActivity {
 
         initUIElements();
         initListView();
+        Log.d(DEBUG_TAG, "END");
     }
 
     private void initListView() {
@@ -56,16 +62,16 @@ public class ArticlesActivity extends AbstractActivity {
     private void fillListViewData() {
         articleDBAdapter.open();
         getAllArticles();
-        listAdapter = new ArticlesAdapter(this, articles);
+        listAdapter = new ArticlesAdapter(this.context, articlesTitles, articlesContent);
+        Log.d(DEBUG_TAG, "TEST");
         articleList.setAdapter(listAdapter);
 
-        articleList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Article selectedArticle = (Article) adapterView.getItemAtPosition(i);
-                Toast.makeText(context, selectedArticle.getTitle(), Toast.LENGTH_LONG).show();
-            }
-        });
+//        articleList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                Article selectedArticle = (Article) adapterView.getItemAtPosition(i);
+//            }
+//        });
     }
 
     private void getAllArticles() {
@@ -89,6 +95,21 @@ public class ArticlesActivity extends AbstractActivity {
                 Article article = new Article((int) id, title, content, DateUtils.stringToDate(ArticleDBAdapter.ARTICLE_DB_DATE_FORMAT, createTime), author);
                 articles.add(article);
             } while (articleCursor.moveToNext());
+
+            setArticleElements();
+        }
+    }
+
+    private void setArticleElements() {
+        if (articles != null && articles.size() > 0) {
+            articlesTitles = new ArrayList<String>();
+            articlesContent = new HashMap<String, List<String>>();
+            for (Article article : articles) {
+                articlesTitles.add(article.getTitle());
+                List<String> children = new ArrayList<String>();
+                children.add(article.getContent());
+                articlesContent.put(article.getTitle(), children);
+            }
         }
     }
 
@@ -98,7 +119,7 @@ public class ArticlesActivity extends AbstractActivity {
     private void initUIElements() {
         loggedUserBar = (TextView) findViewById(R.id.article_user_bar);
         loggedUserBar.setText(loggedUser);
-        articleList = (ListView) findViewById(R.id.article_list_view);
+        articleList = (ExpandableListView) findViewById(R.id.article_list_view);
         newArticleButton = (Button) findViewById(R.id.new_article_button);
         newArticleButton.setOnClickListener(new View.OnClickListener() {
             @Override

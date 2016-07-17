@@ -11,10 +11,10 @@
         android:gravity="center"
         android:textSize="40px"/>
 
-    <ListView
+    <ExpandableListView
         android:id="@+id/article_list_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></ListView>
+        android:layout_height="wrap_content"></ExpandableListView>
 
     <Button
         android:id="@+id/new_article_button"
