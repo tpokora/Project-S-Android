@@ -29,13 +29,14 @@ public class ArticlesListAdapter extends BaseExpandableListAdapter {
         this.context = context;
         this.articles = articles;
 
+        this.titles = new ArrayList<String>();
+        this.titlesContents = new HashMap<>();
+
         setTitlesAndContents();
     }
 
     private void setTitlesAndContents() {
         if (articles != null && articles.size() > 0) {
-            this.titles = new ArrayList<String>();
-            this.titlesContents = new HashMap<>();
             for (Article article : this.articles) {
                 titles.add(article.getTitle());
                 List<String> content = new ArrayList<String>();

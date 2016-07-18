@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/new_article_title"
-        android:padding="20px"
+        android:padding="@dimen/article_list_item_padding"
         android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"/>
 
 

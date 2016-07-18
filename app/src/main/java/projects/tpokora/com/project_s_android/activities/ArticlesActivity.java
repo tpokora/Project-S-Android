@@ -33,8 +33,6 @@ public class ArticlesActivity extends AbstractActivity {
     private ExpandableListView articleList;
     private Cursor articleCursor;
     private List<Article> articles;
-    private List<String> articlesTitles;
-    private HashMap<String, List<String>> articlesContent;
     private ArticlesListAdapter listAdapter;
 
     private Button newArticleButton;
@@ -60,8 +58,6 @@ public class ArticlesActivity extends AbstractActivity {
     private void fillListViewData() {
         articleDBAdapter.open();
         getAllArticles();
-        articlesTitles = new ArrayList<String>();
-        articlesContent = new HashMap<String, List<String>>();
         listAdapter = new ArticlesListAdapter(this.context, articles);
         articleList.setAdapter(listAdapter);
 //        articleList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -93,21 +89,6 @@ public class ArticlesActivity extends AbstractActivity {
                 Article article = new Article((int) id, title, content, DateUtils.stringToDate(ArticleDBAdapter.ARTICLE_DB_DATE_FORMAT, createTime), author);
                 articles.add(article);
             } while (articleCursor.moveToNext());
-
-            setArticleElements();
-        }
-    }
-
-    private void setArticleElements() {
-        if (articles != null && articles.size() > 0) {
-            articlesTitles = new ArrayList<String>();
-            articlesContent = new HashMap<String, List<String>>();
-            for (Article article : articles) {
-                articlesTitles.add(article.getTitle());
-                List<String> children = new ArrayList<String>();
-                children.add(article.getContent());
-                articlesContent.put(article.getTitle(), children);
-            }
         }
     }
 
