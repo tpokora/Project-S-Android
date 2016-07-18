@@ -1,40 +1,53 @@
 package projects.tpokora.com.project_s_android.storage;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import projects.tpokora.com.project_s_android.R;
 import projects.tpokora.com.project_s_android.rest.model.Article;
-import projects.tpokora.com.project_s_android.utils.DateUtils;
 
 /**
  * Created by pokor on 26.06.2016.
  */
-public class ArticlesAdapter extends BaseExpandableListAdapter {
+public class ArticlesListAdapter extends BaseExpandableListAdapter {
 
     private Context context;
+    private List<Article> articles;
     private List<String> titles;
     private HashMap<String, List<String>> titlesContents;
 
-    public ArticlesAdapter(Context context, List<String> titles, HashMap<String, List<String>> titlesContents) {
+    public ArticlesListAdapter(Context context, List<Article> articles) {
         this.context = context;
-        this.titles = titles;
-        this.titlesContents = titlesContents;
+        this.articles = articles;
+
+        setTitlesAndContents();
+    }
+
+    private void setTitlesAndContents() {
+        if (articles != null && articles.size() > 0) {
+            this.titles = new ArrayList<String>();
+            this.titlesContents = new HashMap<>();
+            for (Article article : this.articles) {
+                titles.add(article.getTitle());
+                List<String> content = new ArrayList<String>();
+                content.add(article.getContent());
+                titlesContents.put(article.getTitle(), content);
+            }
+        }
     }
 
     @Override
     public int getGroupCount() {
-        return 0;
+        return this.titles.size();
     }
 
     @Override
@@ -73,10 +86,10 @@ public class ArticlesAdapter extends BaseExpandableListAdapter {
 
         if (convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = layoutInflater.inflate(R.layout.article_list_item, null);
+            convertView = layoutInflater.inflate(R.layout.article_list_layout, null);
         }
 
-        TextView articleListItemTitle = (TextView) convertView.findViewById(R.id.article_list_item_title);
+        TextView articleListItemTitle = (TextView) convertView.findViewById(R.id.article_list_header);
         articleListItemTitle.setTypeface(null, Typeface.BOLD);
         articleListItemTitle.setText(articleTitle);
 
@@ -90,11 +103,11 @@ public class ArticlesAdapter extends BaseExpandableListAdapter {
 
         if (convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = layoutInflater.inflate(R.layout.article_list_item_content, null);
+            convertView = layoutInflater.inflate(R.layout.article_list_item_content_layout, null);
         }
 
-        TextView articleContetTextView = (TextView) convertView.findViewById(R.id.article_list_item_content);
-        articleContetTextView.setText(contentText);
+        TextView articleContentTextView = (TextView) convertView.findViewById(R.id.article_list_item_content);
+        articleContentTextView.setText(contentText);
 
         return convertView;
     }
@@ -109,7 +122,7 @@ public class ArticlesAdapter extends BaseExpandableListAdapter {
 //    private List<Article> articles;
 //
 //    public ArticlesAdapter(Activity context, List<Article> articles) {
-//        super(context, R.layout.article_list_item, articles);
+//        super(context, R.layout.article_list_layout, articles);
 //        this.context = context;
 //        this.articles = articles;
 //    }
@@ -124,7 +137,7 @@ public class ArticlesAdapter extends BaseExpandableListAdapter {
 //        View rowView = convertView;
 //        if (rowView == null) {
 //            LayoutInflater layoutInflater = context.getLayoutInflater();
-//            rowView = layoutInflater.inflate(R.layout.article_list_item, null, true);
+//            rowView = layoutInflater.inflate(R.layout.article_list_layout, null, true);
 //            viewHolder = new ViewHolder();
 //            viewHolder.article_list_item_title = (TextView) rowView.findViewById(R.id.article_list_item_title);
 //            rowView.setTag(viewHolder);

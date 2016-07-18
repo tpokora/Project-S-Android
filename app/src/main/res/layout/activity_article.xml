@@ -12,7 +12,7 @@
         android:textSize="40px"/>
 
     <ExpandableListView
-        android:id="@+id/article_list_view"
+        android:id="@+id/articles_list_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></ExpandableListView>
 
