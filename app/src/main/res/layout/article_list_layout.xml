@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/article_list_header"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_weight="0"
         android:hint="@string/new_article_title"
-        android:padding="@dimen/article_list_item_padding"
-        android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"/>
-
+        android:padding="@dimen/article_list_header_padding" />
 
 </LinearLayout>

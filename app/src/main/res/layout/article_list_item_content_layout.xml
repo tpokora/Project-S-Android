@@ -7,7 +7,8 @@
         android:id="@+id/article_list_item_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/article_list_item_padding"
+        android:paddingTop="@dimen/article_list_item_top_padding"
+        android:paddingBottom="@dimen/article_list_item_bottom_padding"
         android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"/>
 
 </LinearLayout>

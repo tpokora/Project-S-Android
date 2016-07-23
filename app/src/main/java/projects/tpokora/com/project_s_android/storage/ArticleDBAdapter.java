@@ -43,7 +43,6 @@ public class ArticleDBAdapter {
     public static final String AUTHOR_OPTIONS = "TEXT NOT NULL";
     public static final int AUTHOR_COLUMN = 4;
 
-    public static final String ARTICLE_DB_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss Z";
 
     // SQL QUERY
     private static final String DB_CREATE_ARTICLE_TABLE =
@@ -110,7 +109,7 @@ public class ArticleDBAdapter {
         ContentValues newArticleValues = new ContentValues();
         newArticleValues.put(KEY_TITLE, newArticle.getTitle());
         newArticleValues.put(KEY_CONTENT, newArticle.getContent());
-        newArticleValues.put(KEY_CREATE_TIME, DateUtils.dateToString(ARTICLE_DB_DATE_FORMAT, newArticle.getCreateTime()));
+        newArticleValues.put(KEY_CREATE_TIME, DateUtils.dateToString(DateUtils.DATE_YEAR_MONTH_DAY_TIME_OFFSET, newArticle.getCreateTime()));
         newArticleValues.put(KEY_AUTHOR, newArticle.getAuthor());
         Log.d(DEBUG_TAG, "Inserting new article to database...");
         return sqldb.insertOrThrow(DB_ARTICLE_TABLE, null, newArticleValues);

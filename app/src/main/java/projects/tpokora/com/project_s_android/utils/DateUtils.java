@@ -15,6 +15,9 @@ public class DateUtils {
 
     private static final String DEBUG_TAG = "DATE_UTILS";
 
+    public static final String DATE_YEAR_MONTH_DAY_TIME_OFFSET = "yyyy-MM-dd HH:mm:ss Z";
+    public static final String DATE_YEAR_MONTH_DAY = "yyyy-MM-dd";
+
     public static final Date stringToDate(String format, String dateString) {
         return stringToDate(format, dateString, Locale.ENGLISH);
     }

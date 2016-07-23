@@ -14,7 +14,8 @@
     <ExpandableListView
         android:id="@+id/articles_list_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></ExpandableListView>
+        android:layout_height="wrap_content"
+        android:groupIndicator="@null"></ExpandableListView>
 
     <Button
         android:id="@+id/new_article_button"
