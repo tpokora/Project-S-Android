@@ -3,6 +3,7 @@ package projects.tpokora.com.project_s_android.activities;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 
 import projects.tpokora.com.project_s_android.storage.ArticleDBAdapter;
 
@@ -15,6 +16,8 @@ public abstract class AbstractActivity extends AppCompatActivity {
     protected Bundle bundle;
 
     protected ArticleDBAdapter articleDBAdapter;
+
+    protected Toolbar toolbar;
 
     protected void setupActivity() {
         context = this;

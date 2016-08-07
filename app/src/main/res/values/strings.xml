@@ -9,6 +9,9 @@
     <!-- ARTICLES SCREEN -->
     <string name="articles_new_article">New article</string>
 
+    <!-- TOOLBAR -->
+    <string name="articles_export_content">Export</string>
+
     <!-- NEW ARTICLES SCREEN -->
     <string name="new_article_title">Title</string>
     <string name="new_article_content">Content...</string>

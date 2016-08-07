@@ -3,14 +3,13 @@ package projects.tpokora.com.project_s_android.activities;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import projects.tpokora.com.project_s_android.R;
@@ -44,11 +43,21 @@ public class ArticlesActivity extends AbstractActivity {
         setContentView(R.layout.activity_article);
         setupActivity();
 
+        toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         // Get user
         loggedUser = bundle.getString("login");
 
         initUIElements();
         initListView();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_articles, menu);
+        return true;
     }
 
     private void initListView() {
