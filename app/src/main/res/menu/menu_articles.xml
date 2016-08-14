@@ -3,8 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="projects.tpokora.com.project_s_android.activities.ArticlesActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_settings_export"
         android:orderInCategory="100"
         android:title="@string/articles_export_content"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_settings_about"
+        android:orderInCategory="100"
+        android:title="@string/about"
         app:showAsAction="never" />
 </menu>

@@ -3,11 +3,14 @@ package projects.tpokora.com.project_s_android.activities;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,6 +60,29 @@ public class ArticlesActivity extends AbstractActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_articles, menu);
+        return true;
+    }
+
+    /**
+     * Click handlers on menu item
+     * @param item
+     * @return
+     */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_settings_export:
+                Log.d(DEBUG_TAG, "Go to Export");
+                return true;
+            case R.id.action_settings_about:
+                Log.d(DEBUG_TAG, "Go to About");
+                Intent intent = new Intent(context, AboutActivity.class);
+                startActivity(intent);
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
         return true;
     }
 

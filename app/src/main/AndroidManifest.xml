@@ -19,6 +19,7 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity android:name=".activities.NewArticleActivity"></activity>
+        <activity android:name=".activities.AboutActivity"></activity>
     </application>
 
 </manifest>

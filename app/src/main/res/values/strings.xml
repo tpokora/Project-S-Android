@@ -11,10 +11,15 @@
 
     <!-- TOOLBAR -->
     <string name="articles_export_content">Export</string>
+    <string name="about">About</string>
 
     <!-- NEW ARTICLES SCREEN -->
     <string name="new_article_title">Title</string>
     <string name="new_article_content">Content...</string>
     <string name="new_article_save">Save</string>
     <string name="new_article_back">Back</string>
+
+    <!-- ABOUT STRING -->
+    <string name="about_licence_notes_title">Licence Notes</string>
+    <string name="about_licence_notes_text">Licence Notes Text</string>
 </resources>

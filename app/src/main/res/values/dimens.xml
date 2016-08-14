@@ -7,4 +7,7 @@
     <dimen name="article_list_header_padding">10dp</dimen>
     <dimen name="article_list_item_top_padding">4dp</dimen>
     <dimen name="article_list_item_bottom_padding">4dp</dimen>
+
+    <!-- About Licence Notes dimensions -->
+    <dimen name="licence_notes_title_padding">4dp</dimen>
 </resources>
