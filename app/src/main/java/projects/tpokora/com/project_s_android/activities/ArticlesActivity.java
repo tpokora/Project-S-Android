@@ -76,8 +76,7 @@ public class ArticlesActivity extends AbstractActivity {
                 return true;
             case R.id.action_settings_about:
                 Log.d(DEBUG_TAG, "Go to About");
-                Intent intent = new Intent(context, AboutActivity.class);
-                startActivity(intent);
+                activityDispatcher.redirectNow(ActivityDispatcher.ABOUT_ACTIVITY, true);
                 break;
             default:
                 return super.onOptionsItemSelected(item);
@@ -139,9 +138,7 @@ public class ArticlesActivity extends AbstractActivity {
         newArticleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, NewArticleActivity.class);
-                intent.putExtra("login", loggedUser);
-                startActivity(intent);
+                activityDispatcher.redirectNowWithExtras(ActivityDispatcher.NEW_ARTICLE_ACTIVITY, "login", loggedUser, true);
             }
         });
 

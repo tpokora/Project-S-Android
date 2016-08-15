@@ -52,9 +52,7 @@ public class MainActivity extends AbstractActivity {
                         if (checkUserPassword(login, passwordEditText.getText().toString())) {
                             Log.d("LOGIN", "User: " + login + " password is correct");
                             loginChecked = true;
-                            Intent intent = new Intent(context, ArticlesActivity.class);
-                            intent.putExtra("login", login);
-                            startActivity(intent);
+                            activityDispatcher.redirectNowWithExtras(ActivityDispatcher.ARTICLES_ACTIVITY, "login", login, true);
                         } else {
                             Log.e("LOGIN", "Password incorrect!");
                             Toast.makeText(context, "Password incorrect!", Toast.LENGTH_SHORT).show();
