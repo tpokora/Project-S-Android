@@ -1,6 +1,5 @@
 package projects.tpokora.com.project_s_android.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,7 +11,6 @@ import java.util.Date;
 
 import projects.tpokora.com.project_s_android.R;
 import projects.tpokora.com.project_s_android.rest.model.Article;
-import projects.tpokora.com.project_s_android.storage.ArticleDBAdapter;
 
 /**
  * Created by pokor on 26.06.2016.
