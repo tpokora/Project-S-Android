@@ -63,6 +63,12 @@ public class ArticlesActivity extends AbstractActivity {
         return true;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        initListView();
+    }
+
     /**
      * Click handlers on menu item
      * @param item
