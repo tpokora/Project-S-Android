@@ -1,6 +1,5 @@
 package projects.tpokora.com.project_s_android;
 
-import android.util.Log;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -8,7 +7,6 @@ import org.junit.Test;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.TimeZone;
 
 import projects.tpokora.com.project_s_android.utils.DateUtils;
 

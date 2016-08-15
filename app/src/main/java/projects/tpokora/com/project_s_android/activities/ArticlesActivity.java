@@ -105,7 +105,8 @@ public class ArticlesActivity extends AbstractActivity {
 
     private void getAllArticles() {
         articles = new ArrayList<Article>();
-        articleCursor = articleDBAdapter.getAllArticles();
+//        articleCursor = articleDBAdapter.getAllArticles();
+        articleCursor = articleDBAdapter.getArticlesByAuthor(loggedUser);
         if (articleCursor != null) {
             startManagingCursor(articleCursor);
             articleCursor.moveToFirst();
