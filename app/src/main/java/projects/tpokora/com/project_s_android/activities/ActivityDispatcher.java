@@ -12,6 +12,7 @@ public class ActivityDispatcher {
     public static final String ABOUT_ACTIVITY = "AboutActivity";
     public static final String ARTICLES_ACTIVITY = "ArticlesActivity";
     public static final String NEW_ARTICLE_ACTIVITY = "NewArticleActivity";
+    public static final String EXPORTER_ACTIVITY = "ExporterActivity";
 
     private Activity activity;
     private Intent intent;
@@ -50,6 +51,9 @@ public class ActivityDispatcher {
                 break;
             case NEW_ARTICLE_ACTIVITY:
                 intent = new Intent(context, NewArticleActivity.class);
+                break;
+            case EXPORTER_ACTIVITY:
+                intent = new Intent(context, ExporterActivity.class);
                 break;
             default:
                 break;

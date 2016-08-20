@@ -44,11 +44,11 @@ public class ArticlesActivity extends AbstractActivity {
         setContentView(R.layout.activity_article);
         setupActivity();
 
-        toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
         // Get user
         loggedUser = bundle.getString("login");
+
+        toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         initUIElements();
         initListView();
@@ -77,7 +77,8 @@ public class ArticlesActivity extends AbstractActivity {
         switch (item.getItemId()) {
             case R.id.action_settings_export:
                 Log.d(DEBUG_TAG, "Go to Export");
-                return true;
+                activityDispatcher.redirectNowWithExtras(ActivityDispatcher.EXPORTER_ACTIVITY, "login", loggedUser, true);
+                break;
             case R.id.action_settings_about:
                 Log.d(DEBUG_TAG, "Go to About");
                 activityDispatcher.redirectNow(ActivityDispatcher.ABOUT_ACTIVITY, true);
