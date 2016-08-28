@@ -6,3 +6,6 @@
 .DS_Store
 /build
 /captures
+src/main/res/layout/articleList/
+src/main/res/layout/articlesList/
+/app/src/main/assets/users.properties
