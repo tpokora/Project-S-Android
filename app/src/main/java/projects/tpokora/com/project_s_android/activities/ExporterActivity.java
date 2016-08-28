@@ -26,7 +26,7 @@ public class ExporterActivity extends AbstractActivity {
         // Get user
         loggedUser = bundle.getString("login");
 
-        //articlesExporter = new ArticlesExporter(this, this.context, loggedUser);
+        articlesExporter = new ArticlesExporter(this, this.context, loggedUser);
 
         initUIElement();
     }

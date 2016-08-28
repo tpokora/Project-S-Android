@@ -3,6 +3,11 @@ package projects.tpokora.com.project_s_android.export;
 import android.app.Activity;
 import android.content.Context;
 import android.database.Cursor;
+import android.util.Log;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -15,6 +20,8 @@ import projects.tpokora.com.project_s_android.utils.DateUtils;
  */
 public class ArticlesExporter {
 
+    private static final String DEBUG_TAG = "ArticlesExporter";
+
     private ArticleDBAdapter articleDBAdapter;
     private Activity activity;
 
@@ -26,6 +33,7 @@ public class ArticlesExporter {
         this.activity = activity;
         this.login = login;
         this.articleDBAdapter = new ArticleDBAdapter(context);
+        this.articles = new ArrayList<Article>();
         getArticlesFromDB();
     }
 
@@ -48,5 +56,19 @@ public class ArticlesExporter {
                 articles.add(article);
             } while (cursor.moveToNext());
         }
+    }
+
+    public JSONArray generateJSONArrayFromDB() throws JSONException {
+        JSONArray jsonArray = new JSONArray();
+        if (articles.size() > 0) {
+            for (Article article : articles) {
+                JSONObject articleElement = new JSONObject();
+                articleElement.put("author", article.getAuthor());
+                articleElement.put("title", article.getTitle());
+                articleElement.put("content", article.getContent());
+                jsonArray.put(articleElement);
+            }
+        }
+        return jsonArray;
     }
 }
