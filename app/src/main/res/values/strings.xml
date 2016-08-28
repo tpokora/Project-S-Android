@@ -22,4 +22,7 @@
     <!-- ABOUT STRING -->
     <string name="about_licence_notes_title">Licence Notes</string>
     <string name="about_licence_notes_text">Licence Notes Text</string>
+
+    <!-- EXPORTER ACTIVITY -->
+    <string name="export_JSON_button">EXPORT JSON</string>
 </resources>
