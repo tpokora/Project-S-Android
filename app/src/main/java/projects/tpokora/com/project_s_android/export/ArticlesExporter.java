@@ -58,15 +58,20 @@ public class ArticlesExporter {
         }
     }
 
-    public JSONArray generateJSONArrayFromDB() throws JSONException {
+    public JSONArray generateJSONArrayFromDB() {
         JSONArray jsonArray = new JSONArray();
         if (articles.size() > 0) {
             for (Article article : articles) {
-                JSONObject articleElement = new JSONObject();
-                articleElement.put("author", article.getAuthor());
-                articleElement.put("title", article.getTitle());
-                articleElement.put("content", article.getContent());
-                jsonArray.put(articleElement);
+                try {
+                    JSONObject articleElement = new JSONObject();
+                    articleElement.put("author", article.getAuthor());
+                    articleElement.put("title", article.getTitle());
+                    articleElement.put("content", article.getContent());
+                    jsonArray.put(articleElement);
+                } catch (JSONException e) {
+                    Log.e(DEBUG_TAG, "Could not create JSON object");
+                }
+
             }
         }
         return jsonArray;
