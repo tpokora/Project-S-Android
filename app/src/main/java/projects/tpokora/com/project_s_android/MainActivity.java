@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         // Initiate components
         loginEditText = (EditText) findViewById(R.id.login_editText);
         passwordEditText = (EditText) findViewById(R.id.password_editText);
-        showPasswordEditText(loginChecked);
+        //showPasswordEditText(loginChecked);
         loginButton = (Button) findViewById(R.id.login_button);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     Log.d("TRUE", "TRUE");
                     loginChecked = false;
-                    showPasswordEditText(loginChecked);
+                    //showPasswordEditText(loginChecked);
                 }
             }
         });
