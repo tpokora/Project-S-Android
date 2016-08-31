@@ -19,14 +19,14 @@ import projects.tpokora.com.project_s_android.utils.DateUtils;
 /**
  * Created by pokor on 26.06.2016.
  */
-public class ArticlesListAdapter extends BaseExpandableListAdapter {
+public class ArticlesExpandableListAdapter extends BaseExpandableListAdapter {
 
     private Context context;
     private List<Article> articles;
     private List<String> titles;
     private HashMap<String, List<String>> titlesContents;
 
-    public ArticlesListAdapter(Context context, List<Article> articles) {
+    public ArticlesExpandableListAdapter(Context context, List<Article> articles) {
         this.context = context;
         this.articles = articles;
 

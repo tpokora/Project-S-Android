@@ -16,7 +16,7 @@ import java.util.List;
 import projects.tpokora.com.project_s_android.R;
 import projects.tpokora.com.project_s_android.rest.model.Article;
 import projects.tpokora.com.project_s_android.storage.ArticleDBAdapter;
-import projects.tpokora.com.project_s_android.storage.ArticlesListAdapter;
+import projects.tpokora.com.project_s_android.storage.ArticlesExpandableListAdapter;
 import projects.tpokora.com.project_s_android.utils.DateUtils;
 
 /**
@@ -33,7 +33,7 @@ public class ArticlesActivity extends AbstractActivity {
     private ExpandableListView articleList;
     private Cursor articleCursor;
     private List<Article> articles;
-    private ArticlesListAdapter listAdapter;
+    private ArticlesExpandableListAdapter listAdapter;
 
     private Button newArticleButton;
     private Button dropDBButton;
@@ -97,7 +97,7 @@ public class ArticlesActivity extends AbstractActivity {
     private void fillListViewData() {
         articleDBAdapter.open();
         getAllArticles();
-        listAdapter = new ArticlesListAdapter(this.context, articles);
+        listAdapter = new ArticlesExpandableListAdapter(this.context, articles);
         articleList.setAdapter(listAdapter);
 //        articleList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            @Override
