@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/article_list_item_content"
+        android:id="@+id/article_expandable_list_item_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/article_list_item_top_padding"

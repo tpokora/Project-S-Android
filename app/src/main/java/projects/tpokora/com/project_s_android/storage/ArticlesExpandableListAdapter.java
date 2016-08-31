@@ -89,10 +89,10 @@ public class ArticlesExpandableListAdapter extends BaseExpandableListAdapter {
 
         if (convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = layoutInflater.inflate(R.layout.article_list_layout, null);
+            convertView = layoutInflater.inflate(R.layout.article_expandable_list_layout, null);
         }
 
-        TextView articleListItemTitle = (TextView) convertView.findViewById(R.id.article_list_header);
+        TextView articleListItemTitle = (TextView) convertView.findViewById(R.id.article_expandable_list_header);
         articleListItemTitle.setTypeface(null, Typeface.BOLD);
         articleListItemTitle.setText(articleTitle);
 
@@ -106,10 +106,10 @@ public class ArticlesExpandableListAdapter extends BaseExpandableListAdapter {
 
         if (convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = layoutInflater.inflate(R.layout.article_list_item_content_layout, null);
+            convertView = layoutInflater.inflate(R.layout.article_expandable_list_item_content_layout, null);
         }
 
-        TextView articleContentTextView = (TextView) convertView.findViewById(R.id.article_list_item_content);
+        TextView articleContentTextView = (TextView) convertView.findViewById(R.id.article_expandable_list_item_content);
         articleContentTextView.setText(contentText);
 
         return convertView;

@@ -137,7 +137,7 @@ public class ArticlesActivity extends AbstractActivity {
     private void initUIElements() {
         loggedUserBar = (TextView) findViewById(R.id.article_user_bar);
         loggedUserBar.setText(loggedUser);
-        articleList = (ExpandableListView) findViewById(R.id.articles_list_view);
+        articleList = (ExpandableListView) findViewById(R.id.articles_expandable_list_view);
         newArticleButton = (Button) findViewById(R.id.new_article_button);
         newArticleButton.setOnClickListener(new View.OnClickListener() {
             @Override
