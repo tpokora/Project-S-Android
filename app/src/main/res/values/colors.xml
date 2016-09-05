@@ -5,7 +5,7 @@
     <color name="colorAccent">#FF4081</color>
 
     <!-- Login form colors -->
-    <color name="loginInputColor">#131313</color>
-    <color name="loginInputHintColor">#616161</color>
-    <color name="loginInputBackground">#c6c6c6</color>
+    <color name="loginInputColor">#ececec</color>
+    <color name="loginInputHintColor">#a1a1a1</color>
+    <color name="loginInputBackground">#495cda</color>
 </resources>
