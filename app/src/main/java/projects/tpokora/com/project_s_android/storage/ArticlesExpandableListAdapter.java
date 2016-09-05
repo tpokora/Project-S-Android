@@ -11,6 +11,7 @@ import android.widget.TextView;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -43,7 +44,7 @@ public class ArticlesExpandableListAdapter extends BaseExpandableListAdapter {
             for (Article article : this.articles) {
                 titles.add(article.getTitle());
                 List<ListElementView> content = new ArrayList<ListElementView>();
-                content.add(new ListElementView(article.getContent(), DateUtils.dateToString(DateUtils.DATE_YEAR_MONTH_DAY, article.getCreateTime())));
+                content.add(new ListElementView(article.getContent(), article.getCreateTime()));
                 titlesContents.put(article.getTitle(), content);
             }
         }
@@ -132,9 +133,9 @@ public class ArticlesExpandableListAdapter extends BaseExpandableListAdapter {
         private String content;
         private String date;
 
-        public ListElementView(String content, String date) {
+        public ListElementView(String content, Date date) {
             this.content = content;
-            this.date = date;
+            this.date = DateUtils.dateToString(DateUtils.DATE_YEAR_MONTH_DAY, date);
         }
 
         public String getContent() {
