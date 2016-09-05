@@ -10,4 +10,12 @@
 
     <!-- About Licence Notes dimensions -->
     <dimen name="licence_notes_title_padding">4dp</dimen>
+
+    <!-- Login menu padding -->
+    <dimen name="login_form_font_size">20dp</dimen>
+    <dimen name="login_form_padding">20dp</dimen>
+    <dimen name="login_form_input_margin">8dp</dimen>
+    <dimen name="login_form_input_padding">12dp</dimen>
+    <dimen name="login_form_button_margin_top">40dp</dimen>
+    <dimen name="login_form_button_margin_bottom">20dp</dimen>
 </resources>

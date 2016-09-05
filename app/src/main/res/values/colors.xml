@@ -3,4 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <!-- Login form colors -->
+    <color name="loginInputColor">#ececec</color>
+    <color name="loginInputHintColor">#a1a1a1</color>
+    <color name="loginInputBackground">#495cda</color>
 </resources>
