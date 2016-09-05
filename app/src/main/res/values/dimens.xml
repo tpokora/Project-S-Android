@@ -4,9 +4,17 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <!-- Articles ExpandableList dimensions -->
-    <dimen name="article_list_header_padding">10dp</dimen>
-    <dimen name="article_list_item_top_padding">4dp</dimen>
-    <dimen name="article_list_item_bottom_padding">4dp</dimen>
+    <dimen name="article_list_header_padding">12dp</dimen>
+    <dimen name="article_list_item_top_padding">8dp</dimen>
+    <dimen name="article_list_item_bottom_padding">8dp</dimen>
+    <dimen name="article_list_item_right_padding">50dp</dimen>
+
+    <dimen name="article_list_content_margin">8dp</dimen>
+
+    <dimen name="article_list_user_font_size">24dp</dimen>
+    <dimen name="article_list_header_font_size">18dp</dimen>
+    <dimen name="article_list_content_font_size">16dp</dimen>
+    <dimen name="article_list_date_font_size">12dp</dimen>
 
     <!-- About Licence Notes dimensions -->
     <dimen name="licence_notes_title_padding">4dp</dimen>

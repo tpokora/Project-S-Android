@@ -27,7 +27,8 @@
         android:layout_height="wrap_content"
         android:text="Login"
         android:gravity="center"
-        android:textSize="40px"/>
+        android:textSize="@dimen/article_list_user_font_size"
+        android:padding="@dimen/article_list_header_padding"/>
 
     <ExpandableListView
         android:id="@+id/articles_expandable_list_view"

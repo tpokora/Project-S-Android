@@ -7,8 +7,23 @@
         android:id="@+id/article_expandable_list_item_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/article_list_content_margin"
         android:paddingTop="@dimen/article_list_item_top_padding"
         android:paddingBottom="@dimen/article_list_item_bottom_padding"
-        android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"/>
+        android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
+        android:text="List element content"
+        android:textSize="@dimen/article_list_content_font_size"/>
+
+    <TextView
+        android:id="@+id/article_expandable_list_item_content_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/article_list_item_top_padding"
+        android:paddingBottom="@dimen/article_list_item_bottom_padding"
+        android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
+        android:paddingRight="@dimen/article_list_item_right_padding"
+        android:text="List element date"
+        android:textSize="@dimen/article_list_date_font_size"
+        android:gravity="right"/>
 
 </LinearLayout>

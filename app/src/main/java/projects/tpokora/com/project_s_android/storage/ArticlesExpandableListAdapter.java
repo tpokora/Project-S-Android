@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -24,7 +26,7 @@ public class ArticlesExpandableListAdapter extends BaseExpandableListAdapter {
     private Context context;
     private List<Article> articles;
     private List<String> titles;
-    private HashMap<String, List<String>> titlesContents;
+    private HashMap<String, List<ListElementView>> titlesContents;
 
     public ArticlesExpandableListAdapter(Context context, List<Article> articles) {
         this.context = context;
@@ -40,9 +42,8 @@ public class ArticlesExpandableListAdapter extends BaseExpandableListAdapter {
         if (articles != null && articles.size() > 0) {
             for (Article article : this.articles) {
                 titles.add(article.getTitle());
-                List<String> content = new ArrayList<String>();
-                content.add(article.getContent());
-                content.add(DateUtils.dateToString(DateUtils.DATE_YEAR_MONTH_DAY, article.getCreateTime()));
+                List<ListElementView> content = new ArrayList<ListElementView>();
+                content.add(new ListElementView(article.getContent(), DateUtils.dateToString(DateUtils.DATE_YEAR_MONTH_DAY, article.getCreateTime())));
                 titlesContents.put(article.getTitle(), content);
             }
         }
@@ -102,7 +103,7 @@ public class ArticlesExpandableListAdapter extends BaseExpandableListAdapter {
     @Override
     public View getChildView(int groupPosition, final int childPosition,
                              boolean isLastChild, View convertView, ViewGroup parent) {
-        final String contentText = (String) getChild(groupPosition, childPosition);
+        final ListElementView listElement = (ListElementView) getChild(groupPosition, childPosition);
 
         if (convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -110,7 +111,10 @@ public class ArticlesExpandableListAdapter extends BaseExpandableListAdapter {
         }
 
         TextView articleContentTextView = (TextView) convertView.findViewById(R.id.article_expandable_list_item_content);
-        articleContentTextView.setText(contentText);
+        TextView articleContextTextViewDate = (TextView) convertView.findViewById(R.id.article_expandable_list_item_content_date);
+
+        articleContentTextView.setText(listElement.getContent());
+        articleContextTextViewDate.setText(listElement.getDate());
 
         return convertView;
     }
@@ -118,5 +122,27 @@ public class ArticlesExpandableListAdapter extends BaseExpandableListAdapter {
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
         return true;
+    }
+
+    /**
+     * Data model element for list element
+     */
+    private class ListElementView {
+
+        private String content;
+        private String date;
+
+        public ListElementView(String content, String date) {
+            this.content = content;
+            this.date = date;
+        }
+
+        public String getContent() {
+            return this.content;
+        }
+
+        public String getDate() {
+            return this.date;
+        }
     }
 }
