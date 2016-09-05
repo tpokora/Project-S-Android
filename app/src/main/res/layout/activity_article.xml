@@ -39,12 +39,22 @@
         android:id="@+id/new_article_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/articles_new_article"/>
+        android:layout_margin="@dimen/login_form_input_margin"
+        android:text="@string/articles_new_article"
+        android:background="@color/loginInputBackground"
+        android:textColor="@color/loginInputColor"
+        android:textColorHint="@color/loginInputHintColor"
+        android:textSize="@dimen/login_form_font_size" />
 
     <Button
         android:id="@+id/drop_db_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Drop DB Button"/>
+        android:layout_margin="@dimen/login_form_input_margin"
+        android:text="Drop DB Button"
+        android:background="@color/loginInputBackground"
+        android:textColor="@color/loginInputColor"
+        android:textColorHint="@color/loginInputHintColor"
+        android:textSize="@dimen/login_form_font_size" />
 
 </LinearLayout>
