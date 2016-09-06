@@ -132,7 +132,7 @@ public class ArticleDBAdapter {
     public Cursor getArticlesByAuthor(String author) {
         String[] columns = {KEY_ID, KEY_TITLE, KEY_CONTENT, KEY_CREATE_TIME, KEY_AUTHOR};
         String where = KEY_AUTHOR + "='" + author + "'";
-        return sqldb.query(DB_ARTICLE_TABLE, columns, where, null, null, null, null);
+        return sqldb.query(DB_ARTICLE_TABLE, columns, where, null, null, null, KEY_CREATE_TIME + " DESC");
     }
 
     public Article getArticle(long id) {
