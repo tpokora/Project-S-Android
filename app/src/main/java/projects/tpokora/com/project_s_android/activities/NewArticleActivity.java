@@ -15,6 +15,7 @@ import projects.tpokora.com.project_s_android.rest.model.Article;
 /**
  * Created by pokor on 26.06.2016.
  */
+@Deprecated
 public class NewArticleActivity extends AbstractActivity {
 
     private static final String DEBUG_TAG = "NewArticleActivity";
