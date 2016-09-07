@@ -1,4 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:orientation="vertical"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--tools:context=".activities.ArticlesActivity">-->
+
+    <!--<android.support.design.widget.AppBarLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:theme="@style/AppTheme.AppBarOverlay">-->
+
+        <!--<android.support.v7.widget.Toolbar-->
+            <!--android:id="@+id/toolbar"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="?attr/actionBarSize"-->
+            <!--android:background="?attr/colorPrimary"-->
+            <!--app:popupTheme="@style/AppTheme.PopupOverlay" />-->
+
+    <!--</android.support.design.widget.AppBarLayout>-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/article_user_bar"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Login"-->
+        <!--android:gravity="center"-->
+        <!--android:textSize="@dimen/article_list_user_font_size"-->
+        <!--android:padding="@dimen/article_list_header_padding"/>-->
+
+    <!--<ExpandableListView-->
+        <!--android:id="@+id/articles_expandable_list_view"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:groupIndicator="@null"></ExpandableListView>-->
+
+    <!--<Button-->
+        <!--android:id="@+id/new_article_button"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_margin="@dimen/login_form_input_margin"-->
+        <!--android:text="@string/articles_new_article"-->
+        <!--android:background="@color/loginInputBackground"-->
+        <!--android:textColor="@color/loginInputColor"-->
+        <!--android:textColorHint="@color/loginInputHintColor"-->
+        <!--android:textSize="@dimen/login_form_font_size" />-->
+
+    <!--<Button-->
+        <!--android:id="@+id/drop_db_button"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_margin="@dimen/login_form_input_margin"-->
+        <!--android:text="Drop DB Button"-->
+        <!--android:background="@color/loginInputBackground"-->
+        <!--android:textColor="@color/loginInputColor"-->
+        <!--android:textColorHint="@color/loginInputHintColor"-->
+        <!--android:textSize="@dimen/login_form_font_size" />-->
+
+<!--</LinearLayout>-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -21,41 +81,10 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <TextView
-        android:id="@+id/article_user_bar"
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/articles_fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Login"
-        android:gravity="center"
-        android:textSize="@dimen/article_list_user_font_size"
-        android:padding="@dimen/article_list_header_padding"/>
+        android:layout_height="match_parent">
 
-    <ExpandableListView
-        android:id="@+id/articles_expandable_list_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:groupIndicator="@null"></ExpandableListView>
-
-    <Button
-        android:id="@+id/new_article_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/login_form_input_margin"
-        android:text="@string/articles_new_article"
-        android:background="@color/loginInputBackground"
-        android:textColor="@color/loginInputColor"
-        android:textColorHint="@color/loginInputHintColor"
-        android:textSize="@dimen/login_form_font_size" />
-
-    <Button
-        android:id="@+id/drop_db_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/login_form_input_margin"
-        android:text="Drop DB Button"
-        android:background="@color/loginInputBackground"
-        android:textColor="@color/loginInputColor"
-        android:textColorHint="@color/loginInputHintColor"
-        android:textSize="@dimen/login_form_font_size" />
-
+    </FrameLayout>
 </LinearLayout>
