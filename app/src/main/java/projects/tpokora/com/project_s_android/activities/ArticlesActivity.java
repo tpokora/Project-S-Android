@@ -7,20 +7,9 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ExpandableListView;
-import android.widget.TextView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import projects.tpokora.com.project_s_android.R;
 import projects.tpokora.com.project_s_android.activities.fragments.ArticlesListFragment;
-import projects.tpokora.com.project_s_android.rest.model.Article;
-import projects.tpokora.com.project_s_android.storage.ArticleDBAdapter;
-import projects.tpokora.com.project_s_android.storage.ArticlesExpandableListAdapter;
-import projects.tpokora.com.project_s_android.utils.DateUtils;
 
 /**
  * Created by pokor on 20.06.2016.
@@ -58,10 +47,6 @@ public class ArticlesActivity extends AbstractActivity {
             fragmentTransaction.add(R.id.articles_fragment_container, articlesListFragment).commit();
 
         }
-
-
-        //initUIElements();
-        //initListView();
     }
 
     @Override
@@ -74,7 +59,6 @@ public class ArticlesActivity extends AbstractActivity {
     @Override
     public void onResume() {
         super.onResume();
-//        initListView();
     }
 
     /**

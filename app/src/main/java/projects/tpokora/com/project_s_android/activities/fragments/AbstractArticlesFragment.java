@@ -1,6 +1,5 @@
 package projects.tpokora.com.project_s_android.activities.fragments;
 
-import projects.tpokora.com.project_s_android.activities.ActivityDispatcher;
 import projects.tpokora.com.project_s_android.storage.ArticleDBAdapter;
 
 /**

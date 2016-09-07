@@ -1,8 +1,6 @@
 package projects.tpokora.com.project_s_android.activities.fragments;
 
-import android.content.Context;
 import android.database.Cursor;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
