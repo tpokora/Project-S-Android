@@ -1,5 +1,6 @@
 package projects.tpokora.com.project_s_android.activities.fragments;
 
+import android.support.v4.app.FragmentTransaction;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import projects.tpokora.com.project_s_android.R;
-import projects.tpokora.com.project_s_android.activities.ActivityDispatcher;
 import projects.tpokora.com.project_s_android.rest.model.Article;
 import projects.tpokora.com.project_s_android.storage.ArticleDBAdapter;
 import projects.tpokora.com.project_s_android.storage.ArticlesExpandableListAdapter;
@@ -25,8 +25,6 @@ import projects.tpokora.com.project_s_android.utils.DateUtils;
  * @date Created by pokor on 06.09.2016.
  */
 public class ArticlesListFragment extends AbstractArticlesFragment {
-
-    private String loggedUser;
 
     private TextView loggedUserBar;
 
@@ -47,7 +45,6 @@ public class ArticlesListFragment extends AbstractArticlesFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setupFragment();
-        loggedUser = bundle.getString("login");
 
         initUIElements();
         initListView();
@@ -65,7 +62,7 @@ public class ArticlesListFragment extends AbstractArticlesFragment {
         articleList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Article selectedArticle = (Article) adapterView.getItemAtPosition(i);
+                Article selectedArticle = (Article) adapterView.getItemAtPosition(i);
             }
         });
     }
@@ -105,7 +102,12 @@ public class ArticlesListFragment extends AbstractArticlesFragment {
         newArticleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                activityDispatcher.redirectNowWithExtras(ActivityDispatcher.NEW_ARTICLE_ACTIVITY, "login", loggedUser, true);
+                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+
+                NewArticleFragment newArticleFragment = new NewArticleFragment();
+                newArticleFragment.setArguments(bundle);
+
+                fragmentTransaction.replace(R.id.articles_fragment_container, newArticleFragment).addToBackStack(null).commit();
             }
         });
 
@@ -113,8 +115,8 @@ public class ArticlesListFragment extends AbstractArticlesFragment {
         dropDBButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                articleDBAdapter.deleteAllArticles();
-//                initListView();
+                articleDBAdapter.deleteAllArticles();
+                initListView();
             }
         });
     }
