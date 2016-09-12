@@ -11,6 +11,7 @@
 
     <!-- TOOLBAR -->
     <string name="articles_export_content">Export</string>
+    <string name="articles_list_content">Articles</string>
     <string name="about">About</string>
 
     <!-- NEW ARTICLES SCREEN -->
