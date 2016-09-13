@@ -32,7 +32,7 @@ public class ExporterActivity extends AbstractActivity {
         setupActivity();
 
         // Get user
-        loggedUser = bundle.getString("login");
+//        loggedUser = bundle.getString("login");
 
         articlesExporter = new ArticlesExporter(this, this.context, loggedUser);
 

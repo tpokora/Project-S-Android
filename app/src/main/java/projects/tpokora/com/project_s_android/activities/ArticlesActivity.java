@@ -26,8 +26,6 @@ public class ArticlesActivity extends AbstractActivity {
 
     private static final String DEBUG_TAG = "ArticlesActivity";
 
-    private String loggedUser;
-
     private TextView loggedUserBar;
 
     private ExpandableListView articleList;
@@ -45,49 +43,16 @@ public class ArticlesActivity extends AbstractActivity {
         setupActivity();
 
         // Get user
-        loggedUser = bundle.getString("login");
-
-        toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+//        loggedUser = bundle.getString("login");
 
         initUIElements();
         initListView();
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_articles, menu);
-        return true;
-    }
-
-    @Override
     public void onResume() {
         super.onResume();
         initListView();
-    }
-
-    /**
-     * Click handlers on menu item
-     * @param item
-     * @return
-     */
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_settings_export:
-                Log.d(DEBUG_TAG, "Go to Export");
-                activityDispatcher.redirectNowWithExtras(ActivityDispatcher.EXPORTER_ACTIVITY, "login", loggedUser, true);
-                break;
-            case R.id.action_settings_about:
-                Log.d(DEBUG_TAG, "Go to About");
-                activityDispatcher.redirectNow(ActivityDispatcher.ABOUT_ACTIVITY, true);
-                break;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-
-        return true;
     }
 
     private void initListView() {
