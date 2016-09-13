@@ -9,9 +9,12 @@ public class AbstractArticlesFragment extends AbstractFragment {
 
     protected ArticleDBAdapter articleDBAdapter;
 
+    protected String loggedUser;
+
     @Override
     protected void setupFragment() {
         super.setupFragment();
         articleDBAdapter = new ArticleDBAdapter(this.context);
+        loggedUser = bundle.getString("login");
     }
 }

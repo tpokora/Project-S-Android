@@ -3,9 +3,30 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <EditText
+        android:id="@+id/new_article_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="New Article fragment"/>
+        android:hint="@string/new_article_title" />
+
+    <EditText
+        android:id="@+id/new_article_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lines="10"
+        android:scrollbars="vertical"
+        android:hint="@string/new_article_content"
+        android:gravity="top"/>
+
+    <Button
+        android:id="@+id/new_article_button_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/new_article_save"
+        android:layout_margin="@dimen/login_form_input_margin"
+        android:background="@color/loginInputBackground"
+        android:textColor="@color/loginInputColor"
+        android:textColorHint="@color/loginInputHintColor"
+        android:textSize="@dimen/login_form_font_size" />
 
 </LinearLayout>
