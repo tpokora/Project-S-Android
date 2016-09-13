@@ -8,6 +8,12 @@
         android:title="@string/articles_export_content"
         app:showAsAction="never" />
     <item
+        android:id="@+id/action_settings_articles"
+        android:orderInCategory="100"
+        android:title="@string/articles_list_content"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/action_settings_about"
         android:orderInCategory="100"
         android:title="@string/about"

@@ -3,6 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.1"
+    //project.archivesBaseName = "Project-S"
 
     defaultConfig {
         applicationId "projects.tpokora.com.project_s_android"
@@ -10,11 +11,20 @@ android {
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            applicationVariants.all { variant ->
+//                variant.outputs.each { output ->
+//                    def formattedDate = new Date().format('yyyyMMddHHmmss')
+//                    def newName = output.outputFile.name
+//                    newName = newName.replace(".apk", "-release-" + formattedDate + ".apk")
+//                    output.outputFile = new File(output.outputFile.parent, newName)
+//                }
+//            }
         }
     }
 
@@ -38,4 +48,5 @@ dependencies {
     compile 'com.google.android.gms:play-services-ads:9.4.0'
     compile 'com.google.android.gms:play-services-auth:9.4.0'
     compile 'com.google.android.gms:play-services-gcm:9.4.0'
+    compile 'com.android.support:multidex:1.0.0'
 }
