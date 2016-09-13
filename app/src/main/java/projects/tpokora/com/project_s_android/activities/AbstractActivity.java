@@ -63,7 +63,7 @@ public abstract class AbstractActivity extends AppCompatActivity {
                 activityDispatcher.redirectNowWithExtras(ActivityDispatcher.ARTICLES_ACTIVITY, "login", loggedUser, true);
                 break;
             case R.id.action_settings_about:
-                activityDispatcher.redirectNow(ActivityDispatcher.ABOUT_ACTIVITY, true);
+                activityDispatcher.redirectNowWithExtras(ActivityDispatcher.ABOUT_ACTIVITY, "login", loggedUser, true);
                 break;
             default:
                 return super.onOptionsItemSelected(item);
