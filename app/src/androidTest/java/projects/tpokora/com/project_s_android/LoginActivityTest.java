@@ -1,17 +1,12 @@
 package projects.tpokora.com.project_s_android;
 
-import android.app.Instrumentation.ActivityMonitor;
-import android.support.test.InstrumentationRegistry;
-import android.support.test.filters.LargeTest;
 import android.support.test.rule.ActivityTestRule;
-import android.support.test.runner.AndroidJUnit4;
 
 import junit.framework.Assert;
 
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 import projects.tpokora.com.project_s_android.activities.ArticlesActivity;
 import projects.tpokora.com.project_s_android.activities.LoginActivity;
@@ -29,6 +24,7 @@ public class LoginActivityTest extends AbstractActivityTest {
 
     private String loginString;
     private String passwordString;
+    private String wrongPasswordString;
 
     private ArticlesActivity articlesActivity;
 
@@ -39,13 +35,26 @@ public class LoginActivityTest extends AbstractActivityTest {
     public void initStrings() {
         loginString = "testUser";
         passwordString = "test";
+        wrongPasswordString = "wrongPassword";
     }
 
     @Test
-    public void singIn_test() {
-        // set login and password into editText fields
-        onView(withId(R.id.login_editText)).perform(typeText(loginString));
-        onView(withId(R.id.password_editText)).perform(typeText(passwordString));
+    public void singIn__success_test() {
+        setUpLoginAndPassword(loginString, passwordString);
+        // register which activity need to be monitored
+        activityMonitor = getInstrumentation().addMonitor(ArticlesActivity.class.getName(), null, false);
+
+        // click Sign in button
+        onView(withId(R.id.login_button)).perform(click());
+
+        articlesActivity = (ArticlesActivity) getInstrumentation().waitForMonitorWithTimeout(activityMonitor, ACTIVITY_TIMEOUT_SHORT);
+        Assert.assertNotNull(articlesActivity);
+        articlesActivity.finish();
+    }
+
+    @Test
+    public void singIn_fail_test() {
+        setUpLoginAndPassword(loginString, wrongPasswordString);
 
         // register which activity need to be monitored
         activityMonitor = getInstrumentation().addMonitor(ArticlesActivity.class.getName(), null, false);
@@ -53,8 +62,13 @@ public class LoginActivityTest extends AbstractActivityTest {
         // click Sign in button
         onView(withId(R.id.login_button)).perform(click());
 
-        articlesActivity = (ArticlesActivity) getInstrumentation().waitForMonitorWithTimeout(activityMonitor, 5000);
-        Assert.assertNotNull(articlesActivity);
-        articlesActivity.finish();
+        articlesActivity = (ArticlesActivity) getInstrumentation().waitForMonitorWithTimeout(activityMonitor, ACTIVITY_TIMEOUT_SHORT);
+        Assert.assertNull(articlesActivity);
+    }
+
+    private void setUpLoginAndPassword(String login, String password) {
+        // set login and password into editText fields
+        onView(withId(R.id.login_editText)).perform(typeText(login));
+        onView(withId(R.id.password_editText)).perform(typeText(password));
     }
 }

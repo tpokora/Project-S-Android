@@ -14,5 +14,7 @@ import org.junit.runner.RunWith;
 @LargeTest
 public class AbstractActivityTest {
 
+    protected final int ACTIVITY_TIMEOUT_SHORT = 1000;
+
     protected Instrumentation.ActivityMonitor activityMonitor;
 }
