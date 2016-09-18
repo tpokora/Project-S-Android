@@ -25,14 +25,11 @@ import static android.support.test.espresso.matcher.ViewMatchers.*;
  * Created by pokor on 18.09.2016.
  */
 
-@RunWith(AndroidJUnit4.class)
-@LargeTest
-public class LoginActivityTest {
+public class LoginActivityTest extends AbstractActivityTest {
 
     private String loginString;
     private String passwordString;
 
-    private ActivityMonitor activityMonitor;
     private ArticlesActivity articlesActivity;
 
     @Rule
