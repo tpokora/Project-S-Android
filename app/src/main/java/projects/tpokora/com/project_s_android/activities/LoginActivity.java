@@ -15,7 +15,7 @@ import java.util.Properties;
 import projects.tpokora.com.project_s_android.R;
 import projects.tpokora.com.project_s_android.utils.AssetsPropertyReader;
 
-public class MainActivity extends AbstractActivity {
+public class LoginActivity extends AbstractActivity {
 
     private static final String USERS_PROPERTIES_FILE = "users.properties";
 
