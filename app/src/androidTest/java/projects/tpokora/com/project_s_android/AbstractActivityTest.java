@@ -1,6 +1,7 @@
 package projects.tpokora.com.project_s_android;
 
 import android.app.Instrumentation;
+import android.content.Intent;
 import android.support.test.filters.LargeTest;
 import android.support.test.runner.AndroidJUnit4;
 
@@ -19,10 +20,11 @@ public class AbstractActivityTest {
 
     protected Instrumentation.ActivityMonitor activityMonitor;
 
-    // Login Activity
     protected String loginString;
     protected String passwordString;
     protected String wrongPasswordString;
+
+    protected Intent intent;
 
     @Before
     public void initStrings() {

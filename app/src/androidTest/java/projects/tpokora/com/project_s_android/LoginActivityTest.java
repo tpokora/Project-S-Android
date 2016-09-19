@@ -11,10 +11,9 @@ import projects.tpokora.com.project_s_android.activities.ArticlesActivity;
 import projects.tpokora.com.project_s_android.activities.LoginActivity;
 
 import static android.support.test.InstrumentationRegistry.*;
-import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.action.ViewActions.click;
-import static android.support.test.espresso.action.ViewActions.typeText;
-import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.Espresso.*;
+import static android.support.test.espresso.action.ViewActions.*;
+import static android.support.test.espresso.matcher.ViewMatchers.*;
 
 /**
  * Created by pokor on 18.09.2016.
@@ -59,10 +58,6 @@ public class LoginActivityTest extends AbstractActivityTest {
         onView(withId(R.id.login_editText)).perform(typeText(login));
         onView(withId(R.id.password_editText)).perform(typeText(password));
     }
-
-    /**
-     * UI Actions
-     */
 
     private void signInAction() {
         // click Sign in button
