@@ -31,9 +31,6 @@ public class ExporterActivity extends AbstractActivity {
         setContentView(R.layout.activity_exporter);
         setupActivity();
 
-        // Get user
-//        loggedUser = bundle.getString("login");
-
         articlesExporter = new ArticlesExporter(this, this.context, loggedUser);
 
         initUIElement();

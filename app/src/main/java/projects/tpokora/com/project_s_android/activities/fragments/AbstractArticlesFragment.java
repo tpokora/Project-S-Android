@@ -15,6 +15,9 @@ public class AbstractArticlesFragment extends AbstractFragment {
     protected void setupFragment() {
         super.setupFragment();
         articleDBAdapter = new ArticleDBAdapter(this.context);
-        loggedUser = bundle.getString("login");
+
+        if (bundle != null) {
+            loggedUser = bundle.getString("login");
+        }
     }
 }
