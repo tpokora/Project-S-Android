@@ -4,6 +4,7 @@ import android.app.Instrumentation;
 import android.support.test.filters.LargeTest;
 import android.support.test.runner.AndroidJUnit4;
 
+import org.junit.Before;
 import org.junit.runner.RunWith;
 
 /**
@@ -17,4 +18,16 @@ public class AbstractActivityTest {
     protected final int ACTIVITY_TIMEOUT_SHORT = 1000;
 
     protected Instrumentation.ActivityMonitor activityMonitor;
+
+    // Login Activity
+    protected String loginString;
+    protected String passwordString;
+    protected String wrongPasswordString;
+
+    @Before
+    public void initStrings() {
+        loginString = "testUser";
+        passwordString = "test";
+        wrongPasswordString = "wrongPassword";
+    }
 }
