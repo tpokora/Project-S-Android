@@ -19,7 +19,7 @@ public class LoginActivity extends AbstractActivity {
 
     private static final String USERS_PROPERTIES_FILE = "users.properties";
 
-    private static HashMap users = new HashMap<String, String>();
+    private static HashMap<String, String> users = new HashMap<String, String>();
 
     public static boolean loginChecked = false;
 
@@ -118,7 +118,7 @@ public class LoginActivity extends AbstractActivity {
         AssetsPropertyReader assetsPropertyReader = new AssetsPropertyReader(context);
         Properties properties = assetsPropertyReader.getProperties(USERS_PROPERTIES_FILE);
         for (final Map.Entry<Object, Object> entry : properties.entrySet()) {
-            users.put(entry.getKey(), entry.getValue());
+            users.put(String.valueOf(entry.getKey()), String.valueOf(entry.getValue()));
         }
 
         return users;

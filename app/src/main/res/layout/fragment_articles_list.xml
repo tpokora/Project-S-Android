@@ -1,45 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/fragment_article_list"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
-    android:id="@+id/article_user_bar"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Login"
-    android:gravity="center"
-    android:textSize="@dimen/article_list_user_font_size"
-    android:padding="@dimen/article_list_header_padding"/>
+        android:id="@+id/article_user_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/article_list_header_padding"
+        android:layout_weight="0"
+        android:text="Login"
+        android:textSize="@dimen/article_list_user_font_size" />
 
     <ExpandableListView
-    android:id="@+id/articles_expandable_list_view"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:groupIndicator="@null"></ExpandableListView>
+        android:id="@+id/articles_expandable_list_view"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:groupIndicator="@null" />
 
     <Button
-    android:id="@+id/new_article_button"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="@dimen/login_form_input_margin"
-    android:text="@string/articles_new_article"
-    android:background="@color/loginInputBackground"
-    android:textColor="@color/loginInputColor"
-    android:textColorHint="@color/loginInputHintColor"
-    android:textSize="@dimen/login_form_font_size" />
+        android:id="@+id/new_article_button"
+        android:layout_width="match_parent"
+        android:layout_weight="0"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/login_form_input_margin"
+        android:background="@color/loginInputBackground"
+        android:text="@string/articles_new_article"
+        android:textColor="@color/loginInputColor"
+        android:textColorHint="@color/loginInputHintColor"
+        android:textSize="@dimen/login_form_font_size" />
 
     <Button
-    android:id="@+id/drop_db_button"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="@dimen/login_form_input_margin"
-    android:text="Drop DB Button"
-    android:background="@color/loginInputBackground"
-    android:textColor="@color/loginInputColor"
-    android:textColorHint="@color/loginInputHintColor"
-    android:textSize="@dimen/login_form_font_size" />
+        android:id="@+id/drop_db_button"
+        android:layout_width="match_parent"
+        android:layout_weight="0"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/login_form_input_margin"
+        android:background="@color/loginInputBackground"
+        android:text="Drop DB Button"
+        android:textColor="@color/loginInputColor"
+        android:textColorHint="@color/loginInputHintColor"
+        android:textSize="@dimen/login_form_font_size" />
 
 </LinearLayout>
